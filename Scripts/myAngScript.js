@@ -498,23 +498,6 @@ myCarApp.controller('HomeController', function ($scope) {
                                           else {
 
                                               $scope.myNumbers.splice(i, 1);
-                                              
-                                              
-                                              var j = 0;
-
-                                              while (j < items.length) {
-
-                                                  if ($scope.myItems[i].pos == items[j].pos) {
-
-                                                      items.splice(j, 1);
-
-                                                      //delete items[j];
-
-                                                  }
-
-                                                 j++;
-                                              }
-
 
                                               $scope.myItems.splice(i, 1);
                                           }
