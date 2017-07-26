@@ -1,0 +1,39 @@
+﻿<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">{{shopping}}</div>
+
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+    <div class ="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <table id="1">
+            <thead>
+            </thead>
+            <tbody ng-repeat="item in myItems">
+                <tr>
+                    <td style="padding:3px">{{item.name.nom}}</td>
+                    <td style="padding:3px">{{item.price}}</td>
+                    <td style="padding:3px">{{item.id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div></div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <table id="2">
+            <thead>
+            </thead>
+            <tbody ng-repeat="number in myNumbers">
+                <tr>
+                    <td style="padding:3px">{{number.val}}</td>
+                    <td style="padding:3px"><button id="number.pos" ng-click="addOne(number.pos)">Add</button></td>
+                    <td style="padding:3px"><button id="number.pos+@" ng-click="removeOne(number.pos)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <br><br>
+            <button style="padding:6px" ng-click="clear()">Clear</button><span> </span><span> </span><button style="padding:6px">Submit</button>
+    </div>
+  </div>

@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\globalStyle.css" />
     <Content Include="Images\Lincoln.jpg" />
     <Content Include="Images\mercedes.png" />
     <Content Include="Images\nissan.jpg" />
@@ -88,6 +89,7 @@
     <Content Include="index.html" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\myAngScript.js" />
+    <Content Include="Views\Shopping.html" />
     <Content Include="Views\TextTest.html" />
     <Content Include="Views\Aunction.html" />
     <Content Include="Views\Home.html" />

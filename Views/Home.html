@@ -1,11 +1,13 @@
 ﻿<!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="title">
     <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">{{ title }}</div>
 </div>-->
+
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="car in cars">
-            <img ng-src="{{ car.image }}" alt="{{car.name.nom}}" style=" max-width:80px" ng-style=" width: car.name.minHeight" ng-click="Change(car.name.nom, car.name.maxHeight, car.price)" />
+    <img ng-src="{{ car.image }}" alt="{{car.name.nom}}" style="width:{{car.name.maxWidth}}; height:{{car.name.maxHeight}} " ng-style="width:{{car.name.maxWidth}}; height:{{car.name.minHeight}}" ng-click="Change(car.name.maxHeight, car.id)" />
             <br />
             <a style="color:orange; text-decoration-style:double; font-family:Calibri; font-size:medium">{{car.name.nom }}</a>
-            <span>{{car.name.col.maxWidth}}</span>
+            <button ng-click="Change(car.name.maxHeight, car.id)" value="{{car.name.nom}}"></button>
             <span>{{car.price}}</span>
-              
+            <button ng-show ="green[car.id]" ng-click ="addId(car.id, car.name.nom)">Add {{car.name.nom}}</button> 
+            <button ng-click="details(car.id, car.name.nom)">Details</button>
 </div>
