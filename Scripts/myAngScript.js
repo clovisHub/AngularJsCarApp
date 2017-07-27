@@ -49,7 +49,10 @@ var myCarApp = angular.module('myCarApp', ['ngRoute'])
 
 
 var items = new Array();
-var checkers = new Array();
+var itemsChecker = new Array();
+var numberViewer = new Array();
+var countChecker = new Array();
+
 
 myCarApp.controller('HomeController', function ($scope) {
 
@@ -317,6 +320,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                           try {
 
+
                               if (items.length == 0) {
 
                                   $scope.shopping = 'cart is empty';
@@ -324,6 +328,8 @@ myCarApp.controller('HomeController', function ($scope) {
                               else {
                                   $scope.shopping = 'Shopping cart';
                               }
+
+                             
 
                               var countId = new Array();
 
@@ -497,9 +503,15 @@ myCarApp.controller('HomeController', function ($scope) {
                                           }
                                           else {
 
+                                              //numberViewer.push($cope.myItems[i].id);
+
                                               $scope.myNumbers.splice(i, 1);
 
                                               $scope.myItems.splice(i, 1);
+
+                                              itemsChecker = $scope.myItems;
+                                              countChecker = $scope.myNumbers;
+                                          
                                           }
 
                                           break;
@@ -510,10 +522,81 @@ myCarApp.controller('HomeController', function ($scope) {
 
                               }
 
-                             
-                              $scope.myNumbers = countOut;
+                              if (items.length != 0 && itemsChecker.length == 0) {
 
-                              $scope.myItems = selectedItems;
+                                  alert('first');
+
+                                  $scope.myNumbers = countOut;
+
+                                  $scope.myItems = selectedItems;
+
+                                  items.length = 0;
+
+                                  itemsChecker = selectedItems;
+
+                                  countChecker = countOut;
+
+                               } 
+                               else if (items.length == 0 && itemsChecker.length != 0) {
+
+                                   alert('Second');
+
+                                  $scope.myNumbers = countChecker;
+
+                                  $scope.myItems = itemsChecker;
+
+
+                              }
+                              else {
+
+                                  var y = 0;
+
+                                  alert('third');
+
+                                  while (y < selectedItems.length) {
+
+                                      var z = 0;
+
+                                      while (z < itemsChecker.length) {
+
+                                          if (selectedItems[y].id == itemsChecker[z].id) {
+
+                                              selectedItems[y] = null;
+                                              countOut[y] = null;
+                                          }
+                                        
+                                          z++;
+                                      }
+                                    
+                                      y++;
+                                  }
+
+                                  
+                                  var aa = 0;
+
+                                  while (aa < selectedItems.length) {
+
+                                      if (selectedItems[aa] != null) {
+
+                                          itemsChecker.push(selectedItems[aa]);
+                                          countChecker.push(countOut[aa]);
+                                      }
+
+                                      aa++;
+                                  }
+
+                                  $scope.myNumbers = countChecker;
+
+                                  $scope.myItems = itemsChecker;
+
+                                  items.length = 0;
+
+                                  countOut.length = 0;
+
+                              }
+
+                                
+   
                             
                           } catch (error) {
 
