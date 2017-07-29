@@ -66,9 +66,8 @@ myCarApp.controller('HomeController', function ($scope) {
                            image: '/Images/Bentley.png',
                            price: '$300',
                            cart: '_cart',
-                           id: '1'
-                           
-                          
+                           id: '1',
+             
                        },
                        {
                            name : { nom: 'Bugatti', minHeight: '150px', maxHeight: '150px', minWidth: '200px', maxWidth: '220px', bstrap: 'col-lg-4 col-md-4 col-sm-4 col-xs-12'  },
@@ -230,10 +229,32 @@ myCarApp.controller('HomeController', function ($scope) {
                          
                        }
                        
+                       $scope.close = function () {
+
+                           $scope.state = !$scope.state;
+                          
+                       }
+
                                       
                        $scope.details = function (id, name) {
 
-                           alert(id + ' ' + name);
+                           var i = 0;
+
+                           while(i< $scope.cars.length){
+
+                               if($scope.cars[i].id == id){
+
+                                   $scope.singleItem = $scope.cars[i];
+                                   $scope.state = !$scope.state;
+                                  
+    
+                                  // alert('' + $scope.singleItem.name.nom);
+                                   break;
+                               }
+
+                               i++;
+                           }
+                           
                        }
 
                        $scope.Change = function (maxhg,id) {
@@ -479,7 +500,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                                           $scope.myNumbers[i].val = parseInt($scope.myNumbers[i].val) + 1 + '';
 
-                                          alert('' + $scope.myNumbers[i].val);
+                                          //alert('' + $scope.myNumbers[i].val);
 
                                           break;
                                       }
@@ -524,7 +545,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                               if (items.length != 0 && itemsChecker.length == 0) {
 
-                                  alert('first');
+                                 // alert('first');
 
                                   $scope.myNumbers = countOut;
 
@@ -539,7 +560,7 @@ myCarApp.controller('HomeController', function ($scope) {
                                } 
                                else if (items.length == 0 && itemsChecker.length != 0) {
 
-                                   alert('Second');
+                                  // alert('Second');
 
                                   $scope.myNumbers = countChecker;
 
@@ -551,7 +572,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                                   var y = 0;
 
-                                  alert('third');
+                                 // alert('third');
 
                                   while (y < selectedItems.length) {
 

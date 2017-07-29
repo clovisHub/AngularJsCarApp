@@ -9,5 +9,27 @@
             <button ng-click="Change(car.name.maxHeight, car.id)" value="{{car.name.nom}}"></button>
             <span>{{car.price}}</span>
             <button ng-show ="green[car.id]" ng-click ="addId(car.id, car.name.nom)">Add {{car.name.nom}}</button> 
-            <button ng-click="details(car.id, car.name.nom)">Details</button>
+            <button id="{{car.id}}" ng-click="details(car.id, car.name.nom)" data-target="#displayBox" data-toggle="modal">Details</button>
 </div>
+
+ <div class="modal fade" data-keyboard="false" id="displayBox" tabindex="-1" ng-show="state">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" ng-model="singleItem">
+                <div class="modal-header">
+                    <button class="close" data-dissmiss="modal" ng-click="close()">&times;</button>
+                    <h4 class="modal-title">{{singleItem.name.nom}}</h4>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="{{singleItem.image}}" alt="{{single.name.nom}}" />
+                    <div>{{singleItem.cost}}</div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Add to cart</button>
+                    <button class="btn btn-primary" data-dissmiss="modal" ng-click="close()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
