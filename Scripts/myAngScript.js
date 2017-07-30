@@ -1,6 +1,7 @@
 ﻿/// <reference path="angular.min.js" />
 /// <reference path="angular-route.min.js" />
 
+
 var myCarApp = angular.module('myCarApp', ['ngRoute'])
 
                       .config(function ($routeProvider, $locationProvider) {
@@ -46,6 +47,7 @@ var myCarApp = angular.module('myCarApp', ['ngRoute'])
                           $locationProvider.html5Mode(true);
 
                       });
+
 
 
 var items = new Array();
@@ -228,11 +230,15 @@ myCarApp.controller('HomeController', function ($scope) {
                            }
                          
                        }
+                   
+                       $scope.dropView = true;
                        
                        $scope.close = function () {
-
+  
                            $scope.state = !$scope.state;
-                          
+                           //$scope.dropView = !scope.dropView;
+                           $('#displayBox').modal('hide');
+                           //$scope.state.Change("Default");
                        }
 
                                       
@@ -246,7 +252,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                                    $scope.singleItem = $scope.cars[i];
                                    $scope.state = !$scope.state;
-                                  
+                                   
     
                                   // alert('' + $scope.singleItem.name.nom);
                                    break;
@@ -461,7 +467,7 @@ myCarApp.controller('HomeController', function ($scope) {
 
                                   countOut[idx].val = '' + countId[idx];
 
-                                  alert('' + countOut[idx].pos);
+                                  //alert('' + countOut[idx].pos);
 
                                   idx++;
                               }

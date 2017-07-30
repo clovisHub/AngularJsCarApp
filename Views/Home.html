@@ -11,25 +11,26 @@
             <button ng-show ="green[car.id]" ng-click ="addId(car.id, car.name.nom)">Add {{car.name.nom}}</button> 
             <button id="{{car.id}}" ng-click="details(car.id, car.name.nom)" data-target="#displayBox" data-toggle="modal">Details</button>
 </div>
-
- <div class="modal fade" data-keyboard="false" id="displayBox" tabindex="-1" ng-show="state">
+<div class="container" ng-model="dropView" >
+    <div class="modal fade" keyboard="true" id="displayBox" backdrop="{{dropView}}"  ng-show="state">
         <div class="modal-dialog modal-lg">
             <div class="modal-content" ng-model="singleItem">
                 <div class="modal-header">
-                    <button class="close" data-dissmiss="modal" ng-click="close()">&times;</button>
+                    <button class="close" dissmiss="modal" ng-click="close()">&times;</button>
                     <h4 class="modal-title">{{singleItem.name.nom}}</h4>
                 </div>
                 <div class="modal-body">
-                    <img ng-src="{{singleItem.image}}" alt="{{single.name.nom}}" />
+                    <img ng-src="{{singleItem.image}}" alt="{{single.name.nom}}" style="width:{{singleItem.name.maxWidth}}; height:{{singleItem.name.minHeight}}" />
                     <div>{{singleItem.cost}}</div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary">Add to cart</button>
-                    <button class="btn btn-primary" data-dissmiss="modal" ng-click="close()">Close</button>
+                    <button class="btn btn-primary" dissmiss="modal" ng-click="close()">Close</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
